@@ -1,173 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>Rohini Mallikarjunaiah | Portfolio</title>
-  <meta name="description" content="Portfolio website of Rohini Mallikarjunaiah – M.S. Business Intelligence & Analytics at Stevens; Data & Business Analyst." />
+  <meta name="description" content="Rohini Mallikarjunaiah — M.S. Business Intelligence & Analytics at Stevens. Data/Business Analyst with experience in AML at NatWest Group, campus roles, and analytics projects." />
 
-  <!-- Bootstrap (layout/utilities) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Google Fonts -->
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <!-- Font Awesome (icons) -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-  <!-- Devicon (tech icons) -->
   <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" rel="stylesheet" />
 
+  <!-- Minimal CSS (Stevens-inspired: red + charcoal on white) -->
   <style>
-    :root {
-      --bg:#0f1115;           /* dark */
-      --card:#151821;         /* card */
-      --muted:#9aa3b2;        /* text-muted */
-      --text:#e7ecf4;         /* text */
-      --accent:#e23b5a;       /* accent similar to reference pink */
-      --accent-2:#ff6b8a;
-      --border:#242938;
+    :root{
+      --bg:#ffffff; --text:#16181d; --muted:#5b6470; --red:#d61f3b; --red-2:#ff5a76;
+      --surface:#ffffff; --card:#ffffff; --border:#e9edf2; --shadow:0 10px 30px rgba(0,0,0,.06);
       --radius:18px;
     }
-    html, body { height: 100%; scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { color: var(--accent-2); }
-
-    /* Navbar */
-    .navbar { backdrop-filter: blur(8px); background: rgba(10, 12, 16, .6) !important; border-bottom: 1px solid var(--border); }
-    .navbar-brand { font-weight: 800; letter-spacing: .5px; }
-    .nav-link { color: var(--text) !important; opacity: .85; }
-    .nav-link:hover, .nav-link:focus { color: var(--accent) !important; opacity: 1; }
-
-    /* Hero */
-    .hero {
-      position: relative; min-height: 88vh; display: grid; place-items: center; text-align: center; overflow: hidden; border-bottom: 1px solid var(--border);
-      background: radial-gradient(60% 60% at 50% 40%, rgba(226,59,90,.08), transparent 60%),
-                  radial-gradient(40% 40% at 80% 10%, rgba(255,107,138,.06), transparent 60%),
-                  linear-gradient(180deg, rgba(12,14,18,.65), rgba(12,14,18,.65)),
-                  url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1800&auto=format&fit=crop') center/cover no-repeat;
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    a{color:var(--red);text-decoration:none}
+    a:hover{color:#b7152e}
+    .container{max-width:1100px;margin:auto;padding:0 20px}
+    .navbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--border)}
+    .navbar .inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .nav-links a{margin:0 10px;color:#2b2f36;font-weight:600}
+    .nav-links a:hover{color:var(--red)}
+    .hero{padding:72px 0;background:
+      radial-gradient(60% 60% at 65% 0%, rgba(214,31,59,.08), transparent 70%);
     }
-    .hero h1 { font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 900; letter-spacing: -1px; margin-bottom: .5rem; }
-    .hero .subtitle { font-size: clamp(1rem, 2.2vw, 1.25rem); color: var(--muted); }
-    .chip { display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .75rem; border:1px solid var(--border); background:rgba(255,255,255,.02); border-radius:999px; font-size:.9rem; }
+    .hero h1{font-size:clamp(2.2rem,5vw,3.2rem);margin:8px 0 6px;font-weight:900}
+    .hero .sub{color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:.85rem 1.2rem;border-radius:12px;border:1px solid var(--red);font-weight:700}
+    .btn.primary{background:var(--red);color:#fff;border-color:var(--red)}
+    .btn.primary:hover{background:#b7152e;border-color:#b7152e;color:#fff}
+    .btn.ghost{color:var(--red);background:#fff}
+    .grid{display:grid;gap:20px}
+    .section{padding:80px 0;border-top:1px solid var(--border)}
+    .title{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:900;margin:0 0 6px}
+    .subtitle{color:var(--muted);margin:0 0 28px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .kpi{display:inline-block;padding:.25rem .6rem;border:1px solid #f1c1c9;border-radius:999px;background:#fff1f3;color:#821126;font-size:.8rem}
 
-    .socials a { display:inline-flex; width:46px; height:46px; align-items:center; justify-content:center; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--text); }
-    .socials a:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(226,59,90,.25); color:#fff; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
-
-    /* Section base */
-    section { padding: 90px 0; }
-    .section-title { font-weight: 800; font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 1rem; }
-    .section-sub { color: var(--muted); margin-bottom: 2rem; }
-
-    /* Cards */
-    .cardx { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; height: 100%; }
-    .tag { display:inline-block; padding:.25rem .6rem; border-radius:999px; background: rgba(226,59,90,.15); color:#ffd7e0; border:1px solid rgba(226,59,90,.3); font-size:.8rem; }
-
-    /* Skills icons grid */
-    .skills-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 16px; }
-    .skill { background: var(--card); border:1px solid var(--border); border-radius: 14px; padding: 16px; display:flex; flex-direction:column; align-items:center; gap:10px; }
-    .skill i { font-size: 34px; }
-    .skill span { font-size:.95rem; color:var(--muted); }
-
-    /* Project */
-    .project img { border-radius: 12px; border:1px solid var(--border); }
-    .project h5 { margin-top: 12px; font-weight: 700; }
-
-    /* Footer */
-    footer { border-top:1px solid var(--border); background:#0d0f13; color:var(--muted); }
-
-    /* Small helpers */
-    .avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border:2px solid var(--border); }
-    .divider { height:1px; width:100%; background: var(--border); margin:24px 0; }
+    /* Resume timeline */
+    .timeline{position:relative;padding-left:28px}
+    .timeline:before{content:"";position:absolute;left:10px;top:0;bottom:0;width:3px;background:linear-gradient(var(--red),var(--red-2))}
+    .t-item{position:relative;margin:0 0 22px}
+    .t-item:before{content:"";position:absolute;left:-2px;top:8px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--red)}
+    .t-role{margin:0 0 4px;color:var(--red);font-weight:800}
+    .t-meta{margin:0 0 10px;color:var(--muted);font-size:.95rem}
+    .t-ul{margin:0;padding-left:18px}
+    .row{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+    .col-4{grid-column:span 4}
+    .col-6{grid-column:span 6}
+    .col-8{grid-column:span 8}
+    .col-12{grid-column:span 12}
+    @media (max-width:900px){.col-4,.col-6,.col-8{grid-column:span 12}}
+    .proj h4{margin:0 0 6px}
+    .pill{display:inline-block;padding:.25rem .55rem;border-radius:999px;background:#f6f7fb;border:1px solid var(--border);color:#3b4048;font-size:.8rem;margin:.2rem .2rem 0 0}
+    footer{border-top:1px solid var(--border);color:var(--muted);padding:28px 0;text-align:center}
   </style>
 </head>
+
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg sticky-top" data-bs-theme="dark">
-    <div class="container">
-      <a class="navbar-brand" href="#home">Rohini</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#certs">Certificates</a></li>
-          <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
+  <!-- NAV -->
+  <div class="navbar">
+    <div class="inner container">
+      <div style="font-weight:900;letter-spacing:.3px">Rohini</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#projects">Projects</a>
+        <a href="#certs">Certificates</a>
+        <a href="#pubs">Publications</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
-  </nav>
+  </div>
 
   <!-- HERO -->
-  <header id="home" class="hero">
-    <div class="container py-5">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="d-flex justify-content-center mb-3">
-            <img class="avatar" src="assets/profile.jpg" alt="Rohini headshot placeholder" onerror="this.src='https://avatars.githubusercontent.com/u/9919?s=200&v=4'" />
-          </div>
-          <span class="chip mb-3"><i class="fa-solid fa-location-dot"></i><span>Hoboken, NJ • Open to relocate</span></span>
-          <h1 class="mt-2">Hello, I am <span style="color:var(--accent)">Rohini Mallikarjunaiah</span></h1>
-          <p class="subtitle">Graduate Student (M.S. Business Intelligence & Analytics) @ Stevens • Data & Business Analyst • SQL • Python • Tableau • Power BI</p>
-          <div class="mt-4 d-flex justify-content-center gap-3 socials">
-            <a href="https://github.com/rmallika20" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/rohini20" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="mailto:rohinimallik572@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
-          </div>
-        </div>
+  <header class="hero">
+    <div class="container">
+      <span class="kpi">M.S. Business Intelligence & Analytics • Stevens</span>
+      <h1>Hello, I’m Rohini Mallikarjunaiah</h1>
+      <p class="sub">Graduate Student • Data/Business Analyst • Ex-NatWest (AML) • Graduate Student Assistant & Tutor • Treasurer, Stevens International Student Club</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
+        <a class="btn primary" href="resume/Rohini%20Resume%20Mallikarjunaiah.pdf" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i> Download CV</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/rohini20" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/rmallika20" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
       </div>
     </div>
   </header>
 
   <!-- ABOUT -->
-  <section id="about">
+  <section id="about" class="section">
     <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-md-7">
-          <h2 class="section-title">About</h2>
-          <p class="section-sub">I’m a detail‑oriented analyst pursuing my <strong>M.S. in Business Intelligence & Analytics</strong> at Stevens Institute of Technology. Previously at <strong>NatWest Group</strong> (Financial Crime & AML), I worked on risk analytics and process automation. On campus, I serve as a <strong>Graduate Student Assistant</strong>, <strong>Graduate Student Tutor</strong>, and <strong>Treasurer of the Stevens International Student Club</strong>.</p>
-          <p>My work focuses on turning raw data into clear, actionable insights. I enjoy building dashboards, cleaning complex datasets, and partnering with stakeholders to make data‑informed decisions. Current toolset: <strong>Python, SQL, Tableau, Power BI, Excel, SAS</strong>.</p>
-          <div class="divider"></div>
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <div class="cardx">
-                <div class="d-flex align-items-center gap-3">
-                  <i class="fa-solid fa-briefcase fa-lg" style="color:var(--accent)"></i>
-                  <div>
-                    <div class="fw-bold">Seeking</div>
-                    <div class="text-muted">Summer 2026 Data/Business Analyst Internship</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="cardx">
-                <div class="d-flex align-items-center gap-3">
-                  <i class="fa-solid fa-user-group fa-lg" style="color:var(--accent)"></i>
-                  <div>
-                    <div class="fw-bold">Leadership</div>
-                    <div class="text-muted">Treasurer • Intl Student Club; Graduate Tutor</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <h2 class="title">About</h2>
+      <p class="subtitle">I’m a data-driven problem solver who loves turning messy data into clear insights and decisions.</p>
+      <div class="row">
+        <div class="col-8">
+          <div class="card">
+            <p>I’m pursuing my <strong>M.S. in Business Intelligence & Analytics</strong> at <strong>Stevens Institute of Technology</strong> (’26). I previously spent ~2.5 years at <strong>NatWest Group</strong> in <strong>Financial Crime & AML</strong>, where I reduced false positives and improved detection accuracy using SQL, dashboards, and process automation.</p>
+            <p>On campus, I’m a <strong>Graduate Student Assistant</strong>, a <strong>Graduate Student Tutor</strong>, and the <strong>Treasurer</strong> of the Stevens International Student Club. I’m actively seeking a <strong>Summer 2026 Analyst internship</strong> (Data/Business/HR Analytics or Student Engagement analytics).</p>
           </div>
         </div>
-        <div class="col-md-5">
-          <h3 class="mb-3">Technical Skills</h3>
-          <div class="skills-grid">
-            <div class="skill"><i class="devicon-python-plain"></i><span>Python</span></div>
-            <div class="skill"><i class="devicon-pandas-original"></i><span>Pandas</span></div>
-            <div class="skill"><i class="devicon-numpy-original"></i><span>NumPy</span></div>
-            <div class="skill"><i class="devicon-mysql-plain"></i><span>SQL</span></div>
-            <div class="skill"><i class="fa-solid fa-table"></i><span>Excel</span></div>
-            <div class="skill"><i class="devicon-tableau-plain"></i><span>Tableau</span></div>
-            <div class="skill"><i class="devicon-powerbi-plain"></i><span>Power BI</span></div>
-            <div class="skill"><i class="fa-solid fa-chart-simple"></i><span>Data Viz</span></div>
-            <div class="skill"><i class="fa-solid fa-sitemap"></i><span>ER Modeling</span></div>
-            <div class="skill"><i class="fa-solid fa-shield-halved"></i><span>AML / Risk</span></div>
+        <div class="col-4">
+          <div class="card">
+            <div style="font-weight:800;margin-bottom:8px">Core Skills</div>
+            <div>
+              <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">Tableau</span>
+              <span class="pill">Power BI</span><span class="pill">Excel</span><span class="pill">SAS</span>
+              <span class="pill">Statistics</span><span class="pill">Data Modeling</span><span class="pill">ETL</span>
+              <span class="pill">Dashboards</span>
+            </div>
           </div>
         </div>
       </div>
@@ -175,49 +123,50 @@
   </section>
 
   <!-- RESUME -->
-  <section id="resume">
+  <section id="resume" class="section">
     <div class="container">
-      <h2 class="section-title">Resume</h2>
-      <p class="section-sub">Snapshot of experience & education. <a href="resume/Rohini_Resume_Mallikarjunaiah.pdf" target="_blank" rel="noopener">Download full resume (PDF)</a></p>
+      <h2 class="title">My <span style="color:var(--red)">Resume</span></h2>
+      <p class="subtitle">Timeline of roles, education, and leadership.</p>
 
-      <div class="row g-4">
-        <div class="col-lg-6">
-          <div class="cardx">
-            <h5 class="mb-3">Experience</h5>
-            <div class="mb-3">
-              <div class="d-flex justify-content-between"><strong>Graduate Student Assistant • Stevens</strong><span class="text-muted">2024 – Present</span></div>
-              <ul class="mb-0">
-                <li>Streamlined check‑in & reporting workflows (~10% efficiency gain).</li>
-                <li>Supported event data & engagement initiatives across Campus Recreation.</li>
+      <div class="row">
+        <div class="col-8">
+          <div class="card timeline">
+            <!-- GSA -->
+            <div class="t-item">
+              <h3 class="t-role">Graduate Student Assistant</h3>
+              <div class="t-meta">Aug 2024 – Present · Stevens Institute of Technology</div>
+              <ul class="t-ul">
+                <li>Supported Campus Recreation operations and engagement reporting; streamlined check-in and reporting workflows.</li>
+                <li>Collaborated across teams to coordinate student activities and analytics.</li>
               </ul>
             </div>
-            <div class="mb-3">
-              <div class="d-flex justify-content-between"><strong>Graduate Student Tutor • Stevens</strong><span class="text-muted">2024 – Present</span></div>
-              <ul class="mb-0">
-                <li>Mentored students in Multivariate Analysis & Foundations of Business.</li>
-                <li>Drove grade improvement through tailored study plans.</li>
+            <!-- Tutor -->
+            <div class="t-item">
+              <h3 class="t-role">Graduate Student Tutor</h3>
+              <div class="t-meta">Aug 2024 – Present · Stevens Institute of Technology</div>
+              <ul class="t-ul">
+                <li>Tutored Multivariate Analysis & Foundations of Business; improved outcomes via tailored study plans and 1:1 mentoring.</li>
               </ul>
             </div>
-            <div>
-              <div class="d-flex justify-content-between"><strong>Senior Analyst – Financial Crime & AML • NatWest Group</strong><span class="text-muted">2022 – 2024</span></div>
-              <ul class="mb-0">
-                <li>Reduced false positives by ~20% via SQL‑driven data quality checks.</li>
-                <li>Built metrics dashboards for suspicious activity trends.</li>
+            <!-- NatWest -->
+            <div class="t-item">
+              <h3 class="t-role">Senior Analyst — Financial Crime & AML</h3>
+              <div class="t-meta">Aug 2022 – Jun 2024 · NatWest Group, Bengaluru</div>
+              <ul class="t-ul">
+                <li>Reduced false positives by ~20% with SQL-driven data quality checks and rule tuning.</li>
+                <li>Built leadership dashboards for suspicious activity trends and process KPIs.</li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="cardx">
-            <h5 class="mb-3">Education</h5>
-            <div class="mb-3">
-              <div class="d-flex justify-content-between"><strong>M.S., Business Intelligence & Analytics</strong><span class="text-muted">2024 – 2026 (exp)</span></div>
-              <div>Stevens Institute of Technology, Hoboken, NJ • GPA ~3.9</div>
-            </div>
-            <div>
-              <div class="d-flex justify-content-between"><strong>B.Com, Accounting & Finance</strong><span class="text-muted">—</span></div>
-              <div>Bangalore University, India</div>
-            </div>
+
+        <div class="col-4">
+          <div class="card">
+            <div style="font-weight:800;margin-bottom:6px">Education</div>
+            <div><strong>M.S., Business Intelligence & Analytics</strong><br/>Stevens Institute of Technology (2024–2026)</div>
+            <div style="margin-top:10px;color:var(--muted)">Courses: Multivariate Analysis, Experimental Design, Data Integration, Optimization, Healthcare Analytics.</div>
+            <hr style="border:none;border-top:1px solid var(--border);margin:16px 0">
+            <a class="btn primary" href="resume/Rohini%20Resume%20Mallikarjunaiah.pdf" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i> Download full resume (PDF)</a>
           </div>
         </div>
       </div>
@@ -225,163 +174,108 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects">
+  <section id="projects" class="section">
     <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-sub">Selected academic & independent work.</p>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="cardx project h-100">
-            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=1600&auto=format&fit=crop" class="img-fluid" alt="Healthcare analytics" />
-            <h5>Healthcare Claims Analytics – Syntegra Medicare CCLF</h5>
-            <p class="text-muted">Compared CVM vs Non‑CVM utilization using Python, Excel & Tableau.</p>
-            <div class="d-flex gap-2 mb-2">
-              <span class="tag">Python</span><span class="tag">Tableau</span><span class="tag">Excel</span>
-            </div>
-            <a href="https://shorturl.at/9HvS9" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View</a>
-          </div>
+      <h2 class="title">My Projects</h2>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+        <div class="card proj">
+          <h4>Optimizing Pricing Strategy in Boston (Retail Analytics)</h4>
+          <p>Used XGBoost, Excel & Tableau to optimize pricing and profitability in Boston retail data.</p>
+          <div class="pill">Python</div><div class="pill">XGBoost</div><div class="pill">Tableau</div>
+          <div style="margin-top:10px"><a href="https://github.com/rohinimallik572-svg/pricing-strategy-boston-retail" target="_blank">View project →</a></div>
         </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="cardx project h-100">
-            <img src="https://images.unsplash.com/photo-1551281044-8d8e99d7a15a?q=80&w=1600&auto=format&fit=crop" class="img-fluid" alt="AI dashboard" />
-            <h5>AI‑Driven Business Performance & Customer Insight Dashboard</h5>
-            <p class="text-muted">Built BERT/TF‑IDF pipelines and Power BI dashboards for insights.</p>
-            <div class="d-flex gap-2 mb-2">
-              <span class="tag">NLP</span><span class="tag">Power BI</span><span class="tag">Python</span>
-            </div>
-            <a href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Repo</a>
-          </div>
+
+        <div class="card proj">
+          <h4>Healthcare Claims Analytics — Syntegra Medicare CCLF</h4>
+          <p>Analyzed CVM vs Non-CVM utilization using Python, Excel & Tableau to uncover cost and utilization patterns.</p>
+          <div class="pill">Python</div><div class="pill">Excel</div><div class="pill">Tableau</div>
+          <div style="margin-top:10px"><a href="https://shorturl.at/9HvS9" target="_blank">View project →</a></div>
         </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="cardx project h-100">
-            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop" class="img-fluid" alt="Retail pricing" />
-            <h5>Optimizing Pricing Strategy in Boston – Retail Analytics</h5>
-            <p class="text-muted">Used XGBoost + Tableau to optimize pricing & profitability.</p>
-            <div class="d-flex gap-2 mb-2">
-              <span class="tag">XGBoost</span><span class="tag">Tableau</span><span class="tag">Excel</span>
-            </div>
-            <a href="https://tinyurl.com/ddakevu5" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Repo</a>
-          </div>
+
+        <div class="card proj">
+          <h4>Amazon Extended ER Modeling</h4>
+          <p>Designed ER models in Excel & SQL to improve data integrity and marketplace scalability.</p>
+          <div class="pill">ERD</div><div class="pill">SQL</div><div class="pill">Data Modeling</div>
+          <div style="margin-top:10px"><a href="https://bit.ly/amazon-er" target="_blank">View project →</a></div>
         </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="cardx project h-100">
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1600&auto=format&fit=crop" class="img-fluid" alt="ER modeling" />
-            <h5>Amazon Extended ER Modeling</h5>
-            <p class="text-muted">Designed ER models in SQL & Excel to improve integrity & scalability.</p>
-            <div class="d-flex gap-2 mb-2">
-              <span class="tag">SQL</span><span class="tag">Data Modeling</span>
-            </div>
-            <a href="https://bit.ly/amazon-er" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Repo</a>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="cardx project h-100">
-            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop" class="img-fluid" alt="E‑commerce churn" />
-            <h5>Customer Behavior & Churn Risk (E‑commerce)</h5>
-            <p class="text-muted">Factor analysis + logistic regression for segmentation & churn.</p>
-            <div class="d-flex gap-2 mb-2">
-              <span class="tag">LogReg</span><span class="tag">Clustering</span><span class="tag">PCA</span>
-            </div>
-            <a href="https://bit.ly/ecomm-churn" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Repo</a>
-          </div>
+
+        <div class="card proj">
+          <h4>AI-Driven Business Performance Dashboard</h4>
+          <p>Built TF-IDF/BERT pipelines and Power BI dashboards to surface customer insights (ongoing).</p>
+          <div class="pill">NLP</div><div class="pill">Power BI</div><div class="pill">Python</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CERTIFICATES -->
-  <section id="certs">
+  <section id="certs" class="section">
     <div class="container">
-      <h2 class="section-title">Certificates</h2>
-      <div class="row g-3">
-        <div class="col-md-6 col-lg-4">
-          <div class="cardx h-100">
-            <div class="d-flex align-items-center justify-content-between"><strong>Google Advanced Data Analytics</strong><span class="tag">Coursera</span></div>
-            <div class="text-muted">2025</div>
-            <a class="mt-2 d-inline-block" href="#" target="_blank">View credential</a>
-          </div>
+      <h2 class="title">Certificates</h2>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+        <div class="card"><strong>Google Advanced Data Analytics</strong><br/><span class="subtitle">Coursera — 2025</span></div>
+        <div class="card"><strong>Power BI Essential Training</strong><br/><span class="subtitle">LinkedIn Learning — 2025</span></div>
+        <div class="card"><strong>Tableau Desktop Specialist</strong><br/><span class="subtitle">In progress</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="pubs" class="section">
+    <div class="container">
+      <h2 class="title">Publications</h2>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));">
+        <div class="card">
+          <strong>Managing the Data Resource — Integration & Governance</strong>
+          <p class="subtitle">Academic write-up · 2025</p>
+          <p>Paper on data integration, ER design, and governance frameworks for analytics-ready systems.</p>
         </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="cardx h-100">
-            <div class="d-flex align-items-center justify-content-between"><strong>Power BI Essential Training</strong><span class="tag">LinkedIn Learning</span></div>
-            <div class="text-muted">2025</div>
-            <a class="mt-2 d-inline-block" href="#" target="_blank">View credential</a>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="cardx h-100">
-            <div class="d-flex align-items-center justify-content-between"><strong>Tableau Desktop Specialist</strong><span class="tag">In progress</span></div>
-            <div class="text-muted">—</div>
-          </div>
+        <div class="card">
+          <strong>Healthcare Claims Insights with CVM Focus</strong>
+          <p class="subtitle">Course project brief · 2025</p>
+          <p>Claim utilization patterns and KPI reporting comparing CVM vs Non-CVM cohorts.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ACHIEVEMENTS -->
-  <section id="achievements">
+  <section id="achievements" class="section">
     <div class="container">
-      <h2 class="section-title">Achievements</h2>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item bg-transparent text-light border-secondary">Treasurer, Stevens International Student Club – managed event budgets and finance workflows for 200+ students; introduced simple tracking that improved reimbursements speed.</li>
-        <li class="list-group-item bg-transparent text-light border-secondary">Graduate Tutor – guided students in Multivariate Analysis & Foundations of Business; consistent 1:1 sessions led to notable grade lifts.</li>
-        <li class="list-group-item bg-transparent text-light border-secondary">NatWest Group – reduced false positives by ~20% through SQL quality checks and better rules hygiene.</li>
+      <h2 class="title">Achievements</h2>
+      <ul style="margin:0;padding-left:18px">
+        <li>Treasurer, Stevens International Student Club — managed event budgets and finance workflows for 200+ students.</li>
+        <li>Graduate Tutor — mentored students in Multivariate Analysis & Foundations of Business.</li>
+        <li>NatWest Group — reduced AML false positives by ~20% through SQL quality checks.</li>
       </ul>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" class="section">
     <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-sub">Open to internships, collaborations, and analytics projects. Working for the college I study at has been a blessing—I’m keen to keep contributing.</p>
-      <div class="row g-4">
-        <div class="col-lg-6">
-          <div class="cardx">
-            <div class="d-flex align-items-center gap-3 mb-2">
-              <i class="fa-regular fa-envelope fa-lg" style="color:var(--accent)"></i>
-              <div>
-                <div class="fw-bold">Email</div>
-                <a href="mailto:rohinimallik572@gmail.com">rohinimallik572@gmail.com</a>
-              </div>
-            </div>
-            <div class="d-flex align-items-center gap-3 mb-2">
-              <i class="fab fa-github fa-lg" style="color:var(--accent)"></i>
-              <div>
-                <div class="fw-bold">GitHub</div>
-                <a href="https://github.com/rmallika20" target="_blank">github.com/rmallika20</a>
-              </div>
-            </div>
-            <div class="d-flex align-items-center gap-3">
-              <i class="fab fa-linkedin-in fa-lg" style="color:var(--accent)"></i>
-              <div>
-                <div class="fw-bold">LinkedIn</div>
-                <a href="#" target="_blank">linkedin.com/in/rohini20</a>
-              </div>
-            </div>
-          </div>
+      <h2 class="title">Get in touch</h2>
+      <p class="subtitle">Working for the college I study at has been a blessing. I’m seeking a Summer 2026 Analyst internship — happy to connect!</p>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));">
+        <div class="card">
+          <div><strong>Email:</strong> <a href="mailto:rohinimallik572@gmail.com">rohinimallik572@gmail.com</a></div>
+          <div><strong>LinkedIn:</strong> <a target="_blank" href="https://www.linkedin.com/in/rohini20">linkedin.com/in/rohini20</a></div>
+          <div><strong>GitHub:</strong> <a target="_blank" href="https://github.com/rmallika20">github.com/rmallika20</a></div>
         </div>
-        <div class="col-lg-6">
-          <div class="cardx">
-            <h5 class="mb-2">Quick message</h5>
-            <p class="text-muted">Prefer email? Click the button below to open a compose window.</p>
-            <a class="btn btn-lg" style="background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:white; border:none;" href="mailto:rohinimallik572@gmail.com?subject=Hello%20Rohini&body=Hi%20Rohini%2C%20">Email Rohini</a>
-          </div>
+        <div class="card">
+          <a class="btn primary" href="mailto:rohinimallik572@gmail.com?subject=Hello%20Rohini&body=Hi%20Rohini%2C%20" style="width:max-content"><i class="fa-regular fa-envelope"></i> Email Rohini</a>
+          <p class="subtitle" style="margin-top:10px">No map embed (avoids API-key errors). Quick email works best.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-4 mt-4">
-    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
-      <div>© <span id="year"></span> Rohini Mallikarjunaiah</div>
-      <div>Designed with ❤ • Hosted on GitHub Pages</div>
-    </div>
+  <footer>
+    © <span id="y"></span> Rohini Mallikarjunaiah — Built with love • Hosted on GitHub Pages
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
